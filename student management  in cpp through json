@@ -1,0 +1,89 @@
+#include <iostream>
+#include <string.h>
+#include <stdlib.h>
+#include<fstream>
+#include<json/writer.h>
+using namespace std;
+class student
+{
+    public:
+        string name[30];
+        string roll_no,branch;
+		float s1_marks,s2_marks,s3_marks,total_marks;
+        float average_marks;
+        json(string _name,string _roll_no,string _branch,float _s1_marks,float _s2_marks,float _s3_marks)
+        {
+            name=_name;
+            roll_no=_roll_no;
+            branch=_branch;
+            s1_marks=_s1_marks;
+            s2_marks=_s2_marks;
+            s3_marks=_s3_marks;
+        }void read(void);
+   		void calculate(void);
+    	void display(void);
+        void json(void);
+    
+};
+void student::display(void)
+    {
+        cout<<"\n stdent details";
+        cout<<"\n student name: "<<name;
+        cout<<"\n student roll_no: "<<roll_no;
+        cout<<"\n student_branch: "<<branch;
+        cout<<"\n student s1_marks: "<<s1_marks;
+        cout<<"\t";
+         (s1_marks<=40)?cout<<"c grade":(s1_marks>=41||s1_marks<=50)?cout<<" B GRADE":(s1_marks>=51||s1_marks<=70)?cout<<"B+ grade":(s1_marks>=71||s1_marks<=90)?cout<<"A GRADE":cout<<"A++ GRADE";
+        cout<<"\n student s2_marks: "<<s2_marks;
+        cout<<"\t";
+         (s2_marks<=40)?cout<<"c grade":(s2_marks>=41||s2_marks<=50)?cout<<" B GRADE":(s2_marks>=51||s2_marks<=70)?cout<<"B+ grade":(s2_marks>=71||s2_marks<=90)?cout<<"A GRADE":cout<<"A++ GRADE";
+        cout<<"\n student s3_marks: "<<s3_marks;
+        cout<<"\t";
+         (s3_marks<=40)?cout<<"c grade":(s3_marks>=41||s3_marks<=50)?cout<<" B GRADE":(s3_marks>=51||s3_marks<=70)?cout<<"B+ grade":(s3_marks>=71||s3_marks<=90)?cout<<"A GRADE":cout<<"A++ GRADE";
+        cout<<"\n student total_marks: "<<total_marks;
+        cout<<"\n student average_marks:"<<average_marks;
+         }
+ void student::json(){
+     std::ofstream file_id;
+     op_file_id.open("student.txt");
+     json::value name;
+     //populate value with the objects,arrays etc..,
+     json::stylewriter styledwriter;
+     file_id<<stylewriter.write(name);
+     file_id.close();
+         }
+ void student::read(void)
+    {//going line to line procedure
+    //check in json file or txt fiel format for more info details;
+        cout<<"\n Enter student_name:";
+        cin>>name;
+        
+        cout<<"\n Enter student_roll_no:";
+        cin>>roll_no;
+        cout<<"\n Enter student_branch";
+        cin>>branch;
+        cout<<"\n Enter student s1_marks";
+        cin>>s1_marks;
+        cout<<"\n Enter student s2_marks";
+        cin>>s2_marks;
+        cout<<"\n Enter student s3_marks";
+        cin>>s3_marks;
+         system("cls");
+        calculate();
+        display();
+    }
+    void student::calculate()
+    {
+        total_marks=s1_marks+s2_marks+s3_marks;
+        average_marks=total_marks/300*100;       
+    }
+int main()//int argc,_TCHAR* argv[]
+{
+     int val; 
+      student obj;
+        cout<<"1.check the old data \t2.Enter new data ";cin>>val;
+        (val==1)?obj.json():obj.read();
+
+    obj.read();
+    return 0;
+}
