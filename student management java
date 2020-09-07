@@ -1,0 +1,93 @@
+
+//programe through java
+import java.io.FileWriter;
+import java.io.IOException;
+//import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.util.Scanner;
+
+//import obj1.nextInt;
+public class student {
+
+    // static File obbFile = new File("student.txt");
+    // static FileWriter obb = new FileWriter("student.txt");
+     static File obb = new File("student.txt");
+
+    static int num, selection;
+    static String name, id;
+    static int s1_marks, s2_marks, s3_marks;
+
+    public static void input() throws IOException {
+        final Scanner obj = new Scanner(System.in);
+        System.out.println("ENTER CREDENTIALS\n Student Name:\t");
+        name = obj.nextLine();
+        obb.write(name);
+        System.out.println("\nstudent Id:\t");
+        id = obj.nextLine();
+        obb.write(id);
+        System.out.println("\nStudent marks subject 1:\t");
+        s1_marks = obj.nextInt();
+        //obb.write(s1_marks);
+        System.out.println("\nStudent marks subject 2:\t");
+        s2_marks = obj.nextInt();
+        //obb.write(s2_marks);
+        System.out.println("\nStudent marks subject 3:\t");
+        s3_marks = obj.nextInt();
+        //obb.write(s3_marks);
+        OutputStreamWriter myWriter;
+        student.output();
+        obb.close();
+    }
+
+    public static void output() {
+        System.out.flush();
+        System.out.println("Name of the student:\t" + name);
+        System.out.println("\nHall ticket number:\t" + id);
+        System.out.println("\nSubject 1:\t" + s1_marks);
+        System.out.println("\nSubject 2:\t" + s2_marks);
+        System.out.println("\nSubject 3:\t" + s3_marks);
+        final int total = s1_marks + s2_marks + s3_marks;
+        final int grade = total / 2;
+        final int average = total / 300 * 100;
+
+        System.out.println("\nTotal marks" + total);
+
+        System.out.println("\nAveragemarks" + average);
+        if (grade >= 136) {
+            System.out.println("\n\tA+");
+        } else if (grade >= 106 || grade <= 135) {
+            System.out.println("\n\tA GRADE");
+        } else if (grade >= 76 || grade <= 105) {
+            System.out.println("\n\tB+ GRADE");
+        } else if (grade >= 61 || grade <= 75) {
+            System.out.println("\n\tB GRADE");
+        } else if (grade >= 1 || grade <= 60) {
+            System.out.println("\n\tC GRADE");
+        }
+    }
+
+    public static void read() {
+    System.out.println("\nWELCOME TO STUDENT MANAGEMENT DATA\n");
+    //obb.write(name);
+}
+    public static void delete(){
+
+    }
+
+public static void main(String[] args) throws IOException {
+ final Scanner obj1 = new Scanner(System.in);
+ System.out.println("1.Enter new Student data\n2.Read student details\n3.Delete student data\n\t");
+ selection = obj1.nextInt();
+ switch(selection){
+     case 1:
+     student.input();
+     break;
+     case 2:
+     student.read();
+     break;
+     case 3:
+     student.delete();
+}
+ //obj.output();
+}
+}
