@@ -1,0 +1,122 @@
+#include<iostream>
+#include<stdio.h>
+#include<stdlib.h>
+#include<fstream>
+using namespace std;
+class movie{
+	public:
+		 int m_name,locate,t_name;
+	     int set,theatre_name;
+		 int selection();
+		 int movie_name(int b,int locate);
+		 int booking_tickets();
+		 int printing();
+		 };
+movie::selection(){
+    system ("cls"); 
+	cout<<"select a city to book a tickect\n"<<endl<<"1.parakal\t2.warangal\n3.Narasampet\t4.Hanamkonda";
+	cin>>locate;
+	system ("cls"); 
+   	switch(locate){
+		case 1:{
+			cout<<"selected city parakal";
+			cout<<"List of Theatres \n"<<"\n\t1.Radhika imax\t2.sri multiplex\n\t3.chines mall";
+			cout<<"\t4.prime theatre\n";
+			cin>>theatre_name;
+			movie_name(theatre_name,locate);
+			break;
+		}
+		case 2:{
+		    cout<<"selected city warangal";	
+			cout<<"List of Theatres \n"<<"\n\t5.ASIAN imax\t6.S2\n\t7.Gemini mall";
+			cout<<"\t8.Balaji Theatre\n";
+			cin>>theatre_name;
+			movie_name(theatre_name,locate);
+			break;
+		}
+		case 3:{
+			 cout<<"selected city Narsampet";
+			 cout<<"\nList of Theatres in Narsampet\n";
+			 cout<<"\n\t9.shanthi 80 MM\t10.S2\n\t11.disco shanti 120 MM";
+			 cin>>theatre_name;
+			 movie_name(theatre_name,locate);
+			 break;
+		}//case 3
+		case 4:{
+			 cout<<"selected city Hanamkonda";
+			 cout<<"\nList of Theatres in Narsampet\n";
+			 cout<<"\n\t12.crystal theatre \t13.Ballaya Theatre\n\t14.rajnikanth Theatre";
+			 cin>>theatre_name;
+			 movie_name(theatre_name,locate);
+		break;	 
+	}//case 4
+}//switch end
+return locate;
+}//function end
+int movie::movie_name(int t_name,int loc){
+	// sleep(3);
+	 system ("cls");
+	 int d=t_name;
+	 cout<<"Movies\n\t 1.TENET\t2.RRR\n\t3.Acharya\t4.V\n5.vakeel saab\n";
+	 cin>>m_name;
+	
+	int booking_tickets(int t_name,int m_name,int loc);
+	 return 0;
+}
+booking_tickets(int a,int b,int c){
+	int alpha=a;//theatre name var
+	int beta=b;//movie name
+	int gamma=c;//movie location
+	string data;
+	ofstream myfile;
+	myfile.open("booking.txt");
+		if(myfile.is_open()){
+	     myfile<<"youre booking details are:\n";
+		   (gamma==1)?myfile<<"welcome to Booking page \ncity:Parakal":(gamma==2)?myfile<<"welcome to Booking page"
+			" \ncity:warangal":(gamma==3)?myfile<<"welcome to Booking page"
+			" \ncity:narsampet":myfile<<"welcome to Booking page"
+			" \ncity:Hanamkonda"<<endl;
+		   //location end 
+					(beta==1)?myfile<<"Movie Booked : TENET\n":
+					(beta==2)?myfile<<"Movie Booked : RRR\n":
+					(beta==3)?myfile<<"Movie Booked : ACHARYA\n":
+							  myfile<<"Movie booked : Vakeel saab"<<endl;
+		//movie name end
+			 		(alpha==1)?myfile<<"Theatre Booked : Radhika imax\n": 
+			 		(alpha==2)?myfile<<"Theatre Booked : sri multiplex\n":
+			 		(alpha==3)?myfile<<"Theatre Booked : chines mall \n":
+					(alpha==4)?myfile<<"Theatre Booked : prime theatre\n":
+					(alpha==5)?myfile<<"Theatre Booked : ASIAN imax\n":
+					(alpha==6)?myfile<<"Theatre Booked : S2\n":
+					(alpha==7)?myfile<<"Theatre Booked : Gemini mall\n":
+					(alpha==8)?myfile<<"Theatre Booked : Balaji Theatre\n":
+					(alpha==9)?myfile<<"Theatre Booked : shanthi 80 MM\n":
+					(alpha==10)?myfile<<"Theatre Booked : Gemini mall\n":
+					(alpha==11)?myfile<<"Theatre Booked : Disco shanti 120 MM\n":
+					(alpha==12)?myfile<<"Theatre Booked : crystal theatre\n":
+					(alpha==13)?myfile<<"Theatre Booked : Ballaya Theatre\n":
+							    myfile<<"Theatre Booked : rajnikanth Theatre\n";
+				// theatre name end
+			system("cls");
+			char var;
+			cout<<"To print the reciept"<<"please click Y|N";
+			cin>>var;
+			if(var=='Y')
+			{
+				//getline(myfile);
+		     	cout<<" "<<myfile;
+			}
+				else{
+			myfile.close();
+		}//close condition
+			
+	}
+	else cout<<"system error please contact administrator \n"<<endl<<"mail.google.com?send&itsrinuhere1@mail.com#";
+	return 0;
+}
+
+int main(){
+	movie obj;
+	obj.selection();
+	return 0;
+}
