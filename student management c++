@@ -1,0 +1,102 @@
+#include<iostream>
+#include<stdlib.h>
+#include<string>
+#include<unistd.h>
+using namespace std;
+int i;
+class database{
+public:
+string name,id;
+	string value,grade1,grade2,grade3; 
+int s1_marks,s2_marks,s3_marks,sel;
+int total = s1_marks + s2_marks + s3_marks;
+int average=(total/300)*100;
+void input(void);
+ void logging(void);
+}student[24];
+void database::logging(void){
+    string username= "admin" ;
+    string password= "admin" ;
+	string str,str1;
+	cout<<"welcome to student database management system\n";
+	cout<<"please USERNAME:\t";
+	cin>>str;
+	cout<<"\npassword:\t";
+	cin>>str1;
+	sleep(2);
+	 system("CLS");
+	if (str==username&&str1==password)
+	{
+	cout<<"youre logged in successfull\n";
+    do{
+    cout<<"Welcome to student management\n"<<"select one of the option\n";
+    cout<<"1:Enter the student data\t";
+    cout<<"2.check the student data\n";
+    cin>>sel;
+    system("cls");
+if (sel==1){
+     input();
+          }
+    else if(sel==2)
+   {
+   	cout<<"\n Enter id or name";
+   	cin>>value;
+if(value==student[i].name){
+        cout<<"\nName of the student :\t"<<student[i].name;
+        cout<<"\nID:\t"<<student[i].id;
+       	cout<<"\nsubject 1 marks:\t"<<student[i].s1_marks;
+           cout<<"\ngrade"<<student[i].grade1;
+		cout<<"\nsubject 2 marks:\t"<<student[i].s2_marks;
+          cout<<"\ngrade"<<student[i].grade2;
+        cout<<"\nsubject 3 marks:\t"<<student[i].s3_marks;
+          cout<<"\ngrade"<<student[i].grade3;
+        cout<<"\nTotal marks:\t"<<student[i].total;
+        cout<<"\navaerage marks:\t"<<student[i].average;
+    }
+    else
+    if(value==student[i].id){
+        cout<<"\nName of the student :\t"<<student[i].name;
+        cout<<"\nID:\t"<<student[i].id;
+       	cout<<"\nsubject 1 marks:\t"<<student[i].s1_marks;
+             cout<<"\ngrade"<<student[i].grade1;
+		cout<<"\nsubject 2 marks:\t"<<student[i].s2_marks;
+          cout<<"\ngrade"<<student[i].grade2;
+        cout<<"\nsubject 3 marks:\t"<<student[i].s3_marks;
+          cout<<"\ngrade"<<student[i].grade3;
+        cout<<"\nTotal marks:\t"<<student[i].total;
+        cout<<"\navaerage marks:\t"<<student[i].average;
+    }
+    else{
+          cout<<"\nNot found\n";
+    }
+   }
+}
+    while(1); 
+   }
+ 
+else{
+	cout<<"please try again";
+	int main();
+	}
+};
+void database::input(){
+cout<<"\nEnter student name:\t";
+cin>>student[i].name;
+cout<<"\nEnter Hallticket or ID number:\t";
+cin>>student[i].id;
+cout<<"\nEnter subject 1 marks:\t";
+cin>>student[i].s1_marks;
+cout<<"\nEnter subject 2 marks:\t";
+cin>>student[i].s2_marks;
+cout<<"\nEnter subject 3 marks:\t";
+cin>>student[i].s3_marks;
+(student[i].s1_marks<=40)?student[i].grade1='C':(student[i].s1_marks>=41&&student[i].s1_marks<=50)?student[i].grade1='B':(student[i].s1_marks>=51&&student[i].s1_marks<=70)?student[i].grade1='B+':(student[i].s1_marks>=71&&student[i].s1_marks<=90)?student[i].grade1='A':student[i].grade1='A++';     
+(student[i].s2_marks<=40)?student[i].grade2='C':(student[i].s2_marks>=41&&student[i].s2_marks<=50)?student[i].grade2='B':(student[i].s2_marks>=51&&student[i].s2_marks<=70)?student[i].grade2='B+':(student[i].s2_marks>=71&&student[i].s2_marks<=90)?student[i].grade2='A':student[i].grade2='A++';     
+(student[i].s3_marks<=40)?student[i].grade3='C':(student[i].s3_marks>=41&&student[i].s3_marks<=50)?student[i].grade3='B':(student[i].s3_marks>=51&&student[i].s3_marks<=70)?student[i].grade3='B+':(student[i].s3_marks>=71&&student[i].s3_marks<=90)?student[i].grade3='A':student[i].grade3='A++';     
+cout<<"\n Data updated successfully\n Redirecting to menu\n";
+int main();
+}
+int main(){
+    database obj1;
+    obj1.logging();
+}
