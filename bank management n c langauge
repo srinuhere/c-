@@ -1,0 +1,83 @@
+#include<iostream>
+#include<stdio.h>
+#include<iomanip>
+#include<stdlib.h>
+ #include<unistd.h>
+using namespace std;
+class bank{
+	char name[20];
+	int acno;
+	char actype[20];
+	int bal;
+	public:
+		void opbal(void);
+		void deposit(void);
+		void withdraw(void);
+		void display(void);
+		};
+		void bank::opbal(void)
+		{ 
+		cout<<endl<<endl;
+		cout<<"ENTER name:-";
+		cin>>name;
+		cout<<"Enter a/c no:-";
+		cin>>acno;
+		cout<<"Enter a/c type:-";
+		cin>>actype;
+		cout<<"Enter opening balance:-";
+		cin>>bal;
+		}
+		void bank::deposit(void)
+		{
+			cout<<"Enter deposit amount:-";
+			int deposit=0;
+			cin>>deposit;
+			deposit=deposit+bal;
+			cout<<"\nDeposit Balance = "<<deposit;
+			bal=deposit;
+		}
+		void bank::withdraw(void){
+			int withdraw;
+			cout<<"\nBalance Amount = "<<bal;
+			cout<<"\n Enter withdrawn Amount:-";
+			cin>>withdraw;
+			bal=bal-withdraw;
+			cout<<"After withdrawn Balance is"<<bal;
+		}
+		void bank::display(void){
+			cout<<endl<<endl<<endl;
+			cout<<setw(50)<<"Details"<<endl;
+			cout<<setw(50)<<"name    "<<name<<endl;
+			cout<<setw(50)<<"A/c. No  "<<acno<<endl;
+			cout<<setw(50)<<"A/c Type  "<<actype<<endl;
+			cout<<setw(50)<<"Balance   "<<bal<<endl; 
+		}
+		int main(){
+			 sleep(0.1);
+			bank obj;
+			int choice;
+			 system("CLS");
+			do
+			{	  // not working and improve
+				cout<<"\n CHoice List\n\n";
+				cout<<"1.To assign intial values\t\t";
+				cout<<"2.To deposit\n"<<"3.To withdrawn\t\t\t\t"<<"4.To Display All details\n"<<endl;
+				cout<<"5.Exit\n";
+				cout<<"Enter youre choice:-";
+				cin>>choice;
+				switch(choice)
+				{
+					case 1:obj.opbal();
+					break;
+					case 2:obj.deposit();
+					break;
+					case 3:obj.withdraw();
+					break;
+					case 4:obj.display();
+					break;
+					case 5:exit(0); 
+				}
+			}
+				while(1);
+				
+				}
