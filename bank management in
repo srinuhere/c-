@@ -1,0 +1,102 @@
+#include <stdio.h>
+#include<unistd.h>
+#include <conio.h>
+#include <string.h>
+struct acc_type
+{
+char bankname[20];
+char bankbranch[20];
+char accholdername[30];
+int accnumber;
+char accholderaddress[100];
+float availablebalance;
+};
+int main()
+{
+typedef struct acc_type account;
+account c[20];
+int option, i,accnumber,money,numacc;
+char accholderaddress=0;//initializing zerto poinb
+do//loop starts
+{
+printf("\n <---- Welcome to Bank Management System ---->\n");
+printf("\n1. Create new account \n");
+printf("2. Cash Deposit \n");
+printf("3. Cash withdrawl \n");
+printf("4. Account information \n");
+printf("5. Log out \n");
+printf("Please enter any one of the options to continue:\t");
+scanf(" %d",&option);
+system("cls");
+if(option==1){
+float availablebalance = 0;
+printf("\nEnter the bank name              : ");
+scanf("%s",c[i].bankname);
+printf("\nEnter the bank branch            : ");
+scanf("%s",c[i].bankbranch);
+printf("\nEnter the account holder name    : ");
+scanf("%s",c[i].accholdername);
+printf("\nEnter the account number(1 to 10): ");
+scanf("%d",&c[i].accnumber);
+printf("\nEnter the account holder address : ");
+scanf("%s", &c[i].accholderaddress);
+system("cls");
+printf("\nAccount has been created successfully \n\n");
+printf("Bank name              : %s \n" , c[i].bankname);
+printf("Bank branch            : %s \n" , c[i].bankbranch);
+printf("Account holder name    : %s \n" , c[i].accholdername);
+printf("Account number         : %d \n" , c[i].accnumber);
+printf("Account holder address : %s \n" , c[i].accholderaddress);
+printf("Available balance      : %f \n" , c[i].availablebalance);
+}
+else
+if(option==2){
+printf("Enter account number you want to deposit money:");
+scanf("%d",&accnumber);
+system("cls");
+for(i=0;i<=10;i++){
+printf("\nplease wait checking the account number");
+}
+system("cls");
+if(accnumber==c[i].accnumber){
+printf("\nThe current balance for account %d is %f \n",c[i].accnumber,c[i].availablebalance);
+printf("\nEnter money you want to deposit :  ");
+scanf("%f",&money);
+c[i].availablebalance+=money;
+}
+else
+printf("\naccount number not matched to our database");
+}
+else if(option==3){
+printf("Enter account number you want to withdraw money:");
+scanf("%d",&accnumber);
+if(accnumber==c[i].accnumber){
+printf("\nThe current balance for account %d is %f \n",c[i].accnumber,c[i].availablebalance);
+printf("\nEnter money you want to withdraw from account ");
+scanf("%f",&money);
+c[i].availablebalance-=money;
+system("cls");
+printf("\nThe New balance for account %d is %f \n",c[i].accnumber, c[i].availablebalance);
+}
+}
+else 
+if(option==4) 
+{
+numacc=0;
+{
+printf("\nBank name              : %s \n" ,c[i].bankname);
+printf("Bank branch              : %s \n" , c[i].bankbranch);
+printf("Account holder name      : %s \n" , c[i].accholdername);
+printf("Account number           : %d \n" ,c[i].accnumber);
+printf("Account holder address   : %s \n" , c[i].accholderaddress);
+printf("Available balance        : %f \n\n" , c[i].availablebalance);
+}
+numacc++;
+}
+else {
+	exit(0);
+}
+}
+while(1);
+}
+
